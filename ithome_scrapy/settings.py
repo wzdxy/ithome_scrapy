@@ -72,6 +72,8 @@ DEFAULT_REQUEST_HEADERS = {
 ITEM_PIPELINES = {
    'ithome_scrapy.pipelines.preHandleData': 200,
    'ithome_scrapy.pipelines.saveArticleToMongo': 300,
+   'ithome_scrapy.pipelines.saveCommentCountToMongo': 400,
+   'ithome_scrapy.pipelines.saveGradeToMongo': 500,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
