@@ -68,7 +68,7 @@ class saveCommentCountToMongo(object):
     def process_item(self, item, spider):
         if spider.name == 'commentCount':
             print(item)
-            self.collection.find_one_and_update({'article_id': str(item['article_id'])},
+            self.collection.find_one_and_update({'article_id': item['article_id']},
                                                     {'$inc': {'comment_count': item['comment_count']}})
         return item
 
@@ -82,7 +82,6 @@ class saveGradeToMongo(object):
 
     def process_item(self, item, spider):
         if spider.name == 'grade':
-            print(item)
-            self.collection.find_one_and_update({'article_id': str(item['article_id'])},
+            print(self.collection.find_one_and_update({'article_id': item['article_id']},
                                                     {'$inc': {'grade': item['grade'],
-                                                              'grade_people_count': item['grade_people_count']}})
+                                                              'grade_people_count': item['grade_people_count']}}))

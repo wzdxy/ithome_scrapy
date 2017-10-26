@@ -76,7 +76,7 @@ class CommentCountSpider(scrapy.Spider):
     def all_article(self):
         articles = self.collection.find() #{'article_id': {'$gt': '311000', '$lt': '311111'}}
         for article in articles:
-            self.start_urls.append('https://dyn.ithome.com/api/comment/count?newsid=' + article['article_id'])
+            self.start_urls.append('https://dyn.ithome.com/api/comment/count?newsid=' + str(article['article_id']))
         print(len(self.start_urls))
 
 
@@ -111,5 +111,5 @@ class GradeSpider(scrapy.Spider):
     def all_article(self):
         articles = self.collection.find() #{'article_id': {'$gt': '2400', '$lt': '2600'}}
         for article in articles:
-            self.start_urls.append('https://dyn.ithome.com/grade/' + article['article_id'])
+            self.start_urls.append('https://dyn.ithome.com/grade/' + str(article['article_id']))
         print(self.start_urls)
